@@ -60,6 +60,9 @@ setup(
     test_suite='nose.collector',
     install_requires=install_requires,
     tests_require=tests_require,
+    dependency_links=[
+        "https://github.com/docker/docker-py/tarball/master#egg=docker-py-1.1.1-dev"
+    ],
     entry_points="""
     [console_scripts]
     docker-compose=compose.cli.main:main
