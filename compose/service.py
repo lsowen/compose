@@ -28,6 +28,7 @@ DOCKER_START_KEYS = [
     'pid',
     'privileged',
     'restart',
+    'security_opt',
 ]
 
 VALID_NAME_CHARS = '[a-zA-Z0-9]'
@@ -430,6 +431,7 @@ class Service(object):
         cap_add = options.get('cap_add', None)
         cap_drop = options.get('cap_drop', None)
         pid = options.get('pid', None)
+        security_opt = options.get('security_opt', None)
 
         dns = options.get('dns', None)
         if isinstance(dns, six.string_types):
@@ -456,7 +458,8 @@ class Service(object):
             cap_add=cap_add,
             cap_drop=cap_drop,
             extra_hosts=extra_hosts,
-            pid_mode=pid
+            pid_mode=pid,
+            security_opt=security_opt
         )
 
     def build(self, no_cache=False):
